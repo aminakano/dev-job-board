@@ -16,7 +16,6 @@ export default {
 .main {
 	text-align: left;
 	margin: 0 20%;
-	padding-bottom: 20vh;
 	h1 {
 		color: #6072e1;
 	}

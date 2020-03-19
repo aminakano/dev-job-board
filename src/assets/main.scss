@@ -1,5 +1,23 @@
 @import 'config';
+@import 'responsive';
 
 body {
 	margin: 0;
+}
+
+.jobs {
+	li {
+		width: 100%;
+
+
+		@include media-sm {
+			width: 50%;
+		}
+		@include media-md {
+			width: 30%;
+		}		
+		@include media-lg {
+			width: 20%;
+		}		
+	}	
 }

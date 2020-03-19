@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ul>
+    <ul class="jobs">
 			<li v-for="(job, i) in allJobs" :key="i">
 				<img v-bind:src="job.company_logo">
 				<h2>{{job.title}}</h2>
@@ -36,7 +36,6 @@ ul {
 
 	li {
 			list-style: none;
-			width: 20%;
 			border: 1px solid #e0dede;
 			border-radius: 5px;
 			padding: 1.5rem 0.5rem 0.5rem;
