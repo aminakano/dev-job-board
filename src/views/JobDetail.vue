@@ -8,6 +8,7 @@
         <p>Amsterdam</p>
       </div>
       <Button msg="Apply for this job"/>
+      <router-link to="/" class="link">Go back</router-link>
     </div>
     <div class="job-desc">
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates consequuntur accusamus dicta itaque dolor pariatur neque hic cumque velit minima culpa dolore, incidunt odio recusandae nulla et? Dicta, temporibus sapiente.
@@ -64,6 +65,9 @@ export default {
       Button {
         align-self: flex-end;
         width: 12rem;
+      }
+      .link {
+        color: #6072e1;
       }
     }
     .job-desc {

@@ -1,17 +1,17 @@
 <template>
   <div>
     <ul class="jobs">
-			<li v-for="(job, i) in allJobs" :key="i">				
+			<li v-for="(job, i) in allJobs" 
+					:key="i" 
+					@click="viewDetails">				
 				<div class="icon-container">
 					<img v-bind:src="job.company_logo">
 				</div>
 				<div class="title-container">
 					<h2 v-if="job.title.length > 35">{{job.title.slice(0,35)}}...</h2>
 					<h2 v-else>{{job.title}}</h2>
-					<p>{{job.location}}</p>
-				
-				</div>
-				
+					<p>{{job.location}}</p>				
+				</div>				
 			</li>
 		</ul>
   </div>
@@ -23,6 +23,11 @@ export default {
 	name: "Jobs",
 	methods: {
 		...mapActions(["fetchJobs"]),
+		viewDetails(){
+				this.$router.push({
+				path: "job",
+    	});
+		}
 	},
 	computed: {
 		...mapGetters(["allJobs"])

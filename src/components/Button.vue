@@ -21,7 +21,6 @@ button {
     outline: none;
     font-size: 1.25rem;
     opacity: 1;
-    // padding: 0.5rem;
 
     &:hover {
         cursor: pointer;
