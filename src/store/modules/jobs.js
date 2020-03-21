@@ -1,6 +1,7 @@
 import axios from "axios";
 const proxy = "https://cors-anywhere.herokuapp.com/";
-const baseUrl = "https://jobs.github.com/positions.json?page=2&search=code";
+const baseUrl = "https://jobs.github.com/positions.json";
+// ?page=3&search=code
 // const baseUrl = "http://api.indeed.com/";
 const headers = { 'Content-Type': 'application/x-www-form-urlencoded', 'x-li-format': 'json'}
 
@@ -17,6 +18,7 @@ const actions = {
 		const response = await axios.get(`${proxy}${baseUrl}`, headers);
     commit("setJobs", response.data);
 		console.log(response.data)
+		// console.log(response.data[3].title.slice(0,35)+ "...")
 	}
 };
 

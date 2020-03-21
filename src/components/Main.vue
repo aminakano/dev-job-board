@@ -16,6 +16,9 @@ export default {
 .main {
 	text-align: left;
 	margin: 0 20%;
+	@media screen and (max-width: 414px) {
+		margin: 0 10%;
+	}
 	h1 {
 		color: #6072e1;
 	}
