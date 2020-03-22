@@ -3,7 +3,7 @@
     <ul class="jobs">
 			<li v-for="(job, i) in allJobs" 
 					:key="i" 
-					@click="viewDetails">				
+					@click="viewDetail(job.id)">				
 				<div class="icon-container">
 					<img v-bind:src="job.company_logo">
 				</div>
@@ -23,10 +23,11 @@ export default {
 	name: "Jobs",
 	methods: {
 		...mapActions(["fetchJobs"]),
-		viewDetails(){
+		viewDetail(id){
 				this.$router.push({
-				path: "job",
-    	});
+				path: `job/${id}`,
+			});
+			console.log(id)
 		}
 	},
 	computed: {
@@ -35,7 +36,6 @@ export default {
 	created(){
 		this.fetchJobs();
 	}
-
 }
 </script>
 

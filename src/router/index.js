@@ -21,8 +21,9 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/About.vue")
   },
   {
-    path: "/job",
+    path: `/job/:id`,
     name: "JobDetail",
+    props: true,
     component: JobDetail
   }
 ];
