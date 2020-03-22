@@ -1,6 +1,8 @@
 <template>
   <div class="job-detail">
+    <Spinner v-if="isLoading" />
     <div class="banner">
+      <router-link to="/" class="link"><i class="fas fa-arrow-left"></i> Go back</router-link>
       <div class="img-container">
         <img class="logo" v-bind:src="viewDetail.company_logo"/>
       </div>
@@ -12,11 +14,12 @@
         <p>Posted: {{ viewDetail.created_at.split(" ").slice(1,3).join(" ") }}</p>
       </div>
       <a class="apply-btn" v-bind:href="viewDetail.url" target="_blank"><Button msg="Apply for this job"/></a>
-      <router-link to="/" class="link">Go back</router-link>
+
     </div>
     <div class="job-desc">
       <p class="job-desc-detail" v-html="viewDetail.description"></p>
       <a v-bind:href="viewDetail.url" target="_blank"><Button msg="Apply for this job"/></a>
+      <router-link to="/" class="link">Go back</router-link>
     </div>
       
   </div>
@@ -24,19 +27,22 @@
 
 <script>
 import Button from "../components/Button.vue";
+import Spinner from "../components/Spinner.vue";
 // import { mapGetters } from "vuex";
 // import { mapGetters, mapActions } from "vuex";
-import axios from 'axios'
+import axios from 'axios';
 
 export default {
   name: "JobDetail",
   components: {
-    Button
+    Button,
+    Spinner
   },
   props: ["id"],
   data() {
     return {
-      viewDetail: ""
+      viewDetail: "",
+      isLoading: true
     }
   },
   methods: {
@@ -53,6 +59,7 @@ export default {
     axios.get(`${proxy}https://jobs.github.com/positions/${this.id}.json`)
           .then(res => {
             this.viewDetail = res.data
+            this.isLoading = false
             console.log(this.viewDetail)
           })
           .catch(err => {
@@ -67,6 +74,10 @@ export default {
 .job-detail {
   margin-top: 3rem;
 
+  .link {
+        color: #6072e1;
+        align-self: flex-end;
+      }
 
     .banner {
       padding: 0 15% 1.5rem;
@@ -98,9 +109,7 @@ export default {
           }
       }
 
-      .link {
-        color: #6072e1;
-      }
+      
 
       .apply-btn {
         align-self: flex-end;
@@ -110,6 +119,8 @@ export default {
     .job-desc {
       background: #e0dede;
       padding: 1rem 20%;
+      display: flex;
+      flex-direction: column;
 
       .job-desc-detail {
         font-size: 1.25rem;
@@ -131,6 +142,9 @@ export default {
         }
       }
       
+      // .link {
+      //   align-self: flex-end;
+      // }
   }
 
   Button {

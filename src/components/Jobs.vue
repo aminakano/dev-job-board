@@ -1,5 +1,6 @@
 <template>
   <div>
+		<Spinner v-if="isLoading" />
     <ul class="jobs">
 			<li v-for="(job, i) in allJobs" 
 					:key="i" 
@@ -18,9 +19,14 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions, mapState } from "vuex";
+import Spinner from "../components/Spinner.vue";
+
 export default {
 	name: "Jobs",
+	components: {
+    Spinner
+  },
 	methods: {
 		...mapActions(["fetchJobs"]),
 		viewDetail(id){
@@ -31,10 +37,14 @@ export default {
 		}
 	},
 	computed: {
-		...mapGetters(["allJobs"])
+		...mapGetters(["allJobs"]),
+		...mapState({
+        isLoading: state => state.isLoading
+      })
 	},
 	created(){
 		this.fetchJobs();
+		this.isLoading = false;
 	}
 }
 </script>

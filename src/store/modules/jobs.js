@@ -8,6 +8,7 @@ const headers = { 'Content-Type': 'application/x-www-form-urlencoded', 'x-li-for
 
 const state = {
   jobs: [],
+  isLoading: true,
   detail: {}
 };
 
@@ -31,7 +32,10 @@ const actions = {
 
 const mutations = {
   setJobs: (state, jobs) => (state.jobs = jobs),
-  setDetail: (state, detail) => (state.detail = detail)
+  setDetail: (state, detail) => (state.detail = detail),
+  updateLoadingStatus(state, payload) {
+    state.isLoading = payload.isLoading;
+  }
 };
 
 export default {
