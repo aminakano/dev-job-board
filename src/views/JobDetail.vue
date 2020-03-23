@@ -11,7 +11,7 @@
       <div class="info">
         <p>{{ viewDetail.type }} | </p>
         <p>{{ viewDetail.location }} | </p>
-        <p>Posted: {{ viewDetail.created_at.split(" ").slice(1,3).join(" ") }}</p>
+        <p>Posted: {{ getDate() }}</p>
       </div>
       <a class="apply-btn" v-bind:href="viewDetail.url" target="_blank"><Button msg="Apply for this job"/></a>
 
@@ -42,24 +42,31 @@ export default {
   data() {
     return {
       viewDetail: "",
-      isLoading: true
+      isLoading: false
     }
   },
   methods: {
     // ...mapActions(["viewDetail"])
+    getDate: function(){
+      return this.viewDetail.created_at.split(" ").slice(1,3).join(" ")
+    }
   },
   computed: {
-		// ...mapGetters(["singleDetail"])
+    // ...mapGetters(["singleDetail"])
+    
 	},
   // created(){
   //   this.viewDetail()
   // },
   mounted() {
     const proxy = "https://cors-anywhere.herokuapp.com/"
+
+    this.isLoading = true
     axios.get(`${proxy}https://jobs.github.com/positions/${this.id}.json`)
           .then(res => {
             this.viewDetail = res.data
             this.isLoading = false
+            
             console.log(this.viewDetail)
           })
           .catch(err => {
