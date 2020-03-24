@@ -28,7 +28,10 @@ const actions = {
     const response = await axios.get(`${proxy}${singleJob}${id}.json`, headers); 
     commit("setDetail", response.data);
     console.log(response.data);
-  }
+  },
+  // async moreJobs ({ commit }) {
+  //   const response = await axios.get(`${proxy}${baseUrl}?page=1`, headers);
+  // }
 };
 
 const mutations = {

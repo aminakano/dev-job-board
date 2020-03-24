@@ -36,6 +36,23 @@ body, h1,h2,h3,h4,h5,h6,p {
 			@include media-md {
 				width: 100%;
 			}
+
+			&.no-photo {
+				background: #999;
+				height: 60px;
+				width: 130px;
+				align-self: center;
+
+				&::after {
+					content:"Preparing...";
+					color: #fff;
+				}
+
+				@include media-md {
+					margin-bottom: 1rem;
+				}
+
+			}
 		}
 		.title-container {
 			h2 {

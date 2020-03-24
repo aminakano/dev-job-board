@@ -5,7 +5,7 @@
 			<li v-for="(job, i) in allJobs" 
 					:key="i" 
 					@click="viewDetail(job.id)">				
-				<div class="icon-container">
+				<div class="icon-container" :class="{'no-photo': !job.company_logo }">
 					<img v-bind:src="job.company_logo">
 				</div>
 				<div class="title-container">
@@ -74,7 +74,7 @@ ul {
 			&:hover {
 				cursor: pointer;
 			}
-
+			
 			img {
 				max-height: 60px;
 				max-width: 130px;
