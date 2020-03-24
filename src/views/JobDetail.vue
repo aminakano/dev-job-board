@@ -1,6 +1,6 @@
 <template>
   <div class="job-detail">
-    <Spinner v-if="isLoading" />
+    <Spinner />
     <div class="banner">
       <router-link to="/" class="link"><i class="fas fa-arrow-left"></i> Go back</router-link>
       <div class="img-container">
@@ -42,7 +42,7 @@ export default {
   data() {
     return {
       viewDetail: "",
-      isLoading: false
+      loading: true
     }
   },
   methods: {
@@ -65,7 +65,7 @@ export default {
     axios.get(`${proxy}https://jobs.github.com/positions/${this.id}.json`)
           .then(res => {
             this.viewDetail = res.data
-            this.isLoading = false
+            this.loading = false
             
             console.log(this.viewDetail)
           })

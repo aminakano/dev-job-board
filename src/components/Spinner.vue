@@ -1,11 +1,20 @@
 <template>
-  <div class="spinner">
+  <div v-if="loading" class="spinner">
 		<div class="bounce1"></div>
 		<div class="bounce2"></div>
 		<div class="bounce3"></div>
 	</div>
 </template>
-
+<script>
+export default {
+  name: 'spinner',
+  computed: {
+    loading () {
+      return this.$store.state.loading
+    },
+  }
+}
+</script>
 <style>
 .spinner {
   margin: 100px auto 0;

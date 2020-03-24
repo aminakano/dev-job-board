@@ -8,7 +8,7 @@ const headers = { 'Content-Type': 'application/x-www-form-urlencoded', 'x-li-for
 
 const state = {
   jobs: [],
-  isLoading: true,
+  loading: true,
   detail: {}
 };
 
@@ -21,6 +21,7 @@ const actions = {
   async fetchJobs ({ commit }) {
 		const response = await axios.get(`${proxy}${baseUrl}`, headers);
     commit("setJobs", response.data);
+    commit("loading", false)
 		console.log(response.data)
   },
   async viewDetail ({ commit }, id) {
@@ -33,8 +34,8 @@ const actions = {
 const mutations = {
   setJobs: (state, jobs) => (state.jobs = jobs),
   setDetail: (state, detail) => (state.detail = detail),
-  updateLoadingStatus(state, payload) {
-    state.isLoading = payload.isLoading;
+  loading: (state, loading) => {
+    state.loading = loading;
   }
 };
 

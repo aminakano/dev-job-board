@@ -7,7 +7,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 // import HelloWorld from "@/components/HelloWorld.vue";
 import Main from "@/components/Main.vue";
 import Jobs from "@/components/Jobs.vue";
@@ -17,8 +16,8 @@ export default {
   components: {
     // HelloWorld,
     Main,
-    Jobs
-  }
+    Jobs,
+  },
 };
 </script>
 <style lang="scss">

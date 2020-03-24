@@ -1,6 +1,6 @@
 <template>
   <div>
-		<Spinner v-if="isLoading" />
+		<Spinner />
     <ul class="jobs">
 			<li v-for="(job, i) in allJobs" 
 					:key="i" 
@@ -15,17 +15,20 @@
 				</div>				
 			</li>
 		</ul>
+		<Button msg="View more" />
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions, mapState } from "vuex";
 import Spinner from "../components/Spinner.vue";
+import Button from "../components/Button.vue";
 
 export default {
 	name: "Jobs",
 	components: {
-    Spinner
+		Spinner,
+		Button
   },
 	methods: {
 		...mapActions(["fetchJobs"]),
@@ -39,12 +42,15 @@ export default {
 	computed: {
 		...mapGetters(["allJobs"]),
 		...mapState({
-        isLoading: state => state.isLoading
+        loading: state => state.loading
       })
 	},
 	created(){
 		this.fetchJobs();
-		this.isLoading = false;
+		// this.$store.commit("loading", false);
+	},
+	mounted(){
+		// this.$store.commit("loading", true);
 	}
 }
 </script>
@@ -76,5 +82,8 @@ ul {
 				height: auto;
 			}
 	}
+}
+Button {
+	width: 10rem;
 }
 </style>
