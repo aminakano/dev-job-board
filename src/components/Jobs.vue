@@ -15,20 +15,17 @@
 				</div>				
 			</li>
 		</ul>
-		<Button msg="View more" />
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions, mapState } from "vuex";
 import Spinner from "../components/Spinner.vue";
-import Button from "../components/Button.vue";
 
 export default {
 	name: "Jobs",
 	components: {
 		Spinner,
-		Button
   },
 	methods: {
 		...mapActions(["fetchJobs"]),
@@ -74,7 +71,7 @@ ul {
 			&:hover {
 				cursor: pointer;
 			}
-			
+
 			img {
 				max-height: 60px;
 				max-width: 130px;
@@ -82,8 +79,5 @@ ul {
 				height: auto;
 			}
 	}
-}
-Button {
-	width: 10rem;
 }
 </style>

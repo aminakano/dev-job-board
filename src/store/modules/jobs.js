@@ -2,7 +2,6 @@ import axios from "axios";
 const proxy = "https://cors-anywhere.herokuapp.com/";
 const baseUrl = "https://jobs.github.com/positions.json";
 const singleJob = `https://jobs.github.com/positions/`;
-// ?page=3&search=code
 // const baseUrl = "http://api.indeed.com/";
 const headers = { 'Content-Type': 'application/x-www-form-urlencoded', 'x-li-format': 'json'}
 
@@ -19,19 +18,29 @@ const getters = {
 
 const actions = {
   async fetchJobs ({ commit }) {
-		const response = await axios.get(`${proxy}${baseUrl}`, headers);
-    commit("setJobs", response.data);
-    commit("loading", false)
-		console.log(response.data)
+    let resultCount = 1, onPage = 0;
+    const allJobs = [];
+
+    while(resultCount > 0) {
+
+      const response = await axios.get(`${proxy}${baseUrl}?page=${onPage}`, headers);
+      const jobs = await response.data;
+      allJobs.push(...jobs);
+      resultCount = jobs.length;
+      onPage ++
+
+      commit("setJobs", allJobs);
+      commit("loading", false);
+      console.log(resultCount)
+      console.log(`got ${allJobs.length} total`);
+    }
+    
   },
   async viewDetail ({ commit }, id) {
     const response = await axios.get(`${proxy}${singleJob}${id}.json`, headers); 
     commit("setDetail", response.data);
     console.log(response.data);
   },
-  // async moreJobs ({ commit }) {
-  //   const response = await axios.get(`${proxy}${baseUrl}?page=1`, headers);
-  // }
 };
 
 const mutations = {
