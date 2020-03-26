@@ -2,7 +2,6 @@ import axios from "axios";
 const proxy = "https://cors-anywhere.herokuapp.com/";
 const baseUrl = "https://jobs.github.com/positions.json";
 const singleJob = `https://jobs.github.com/positions/`;
-// const baseUrl = "http://api.indeed.com/";
 const headers = { 'Content-Type': 'application/x-www-form-urlencoded', 'x-li-format': 'json'}
 
 const state = {
