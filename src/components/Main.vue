@@ -21,6 +21,10 @@ export default {
 	}
 	h1 {
 		color: #6072e1;
+		margin-bottom: 1rem;
+	}
+	p {
+		margin-bottom: 1rem;
 	}
 	button {
 		height: 3rem;

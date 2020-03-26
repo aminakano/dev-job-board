@@ -26,17 +26,4 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-
-#nav {
-
-  a {
-    color: #2c3e50;
-    text-decoration: none;
-
-    &.router-link-exact-active {
-      color: #6072e1;
-      font-weight: bold;
-    }
-  }
-}
 </style>

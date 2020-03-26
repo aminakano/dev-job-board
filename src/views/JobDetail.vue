@@ -87,10 +87,13 @@ export default {
       }
 
     .banner {
-      padding: 0 15% 1.5rem;
+      padding: 0 5% 1.5rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      @media screen and (min-width: 768px) {
+        padding: 0 15% 1.5rem;
+      }
 
       h1 {
         font-size: 2.5rem;
@@ -125,10 +128,13 @@ export default {
     }
     .job-desc {
       background: #e0dede;
-      padding: 1rem 20%;
+      padding: 1rem 5%;
       display: flex;
       flex-direction: column;
 
+      @media screen and (min-width: 768px) {
+        padding: 1rem 20%;
+      }
       .job-desc-detail {
         font-size: 1.25rem;
         margin: 1.5rem 0 3rem;
