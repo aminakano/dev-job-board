@@ -61,7 +61,6 @@ ul {
 
 	li {
 		list-style: none;
-		border: 1px solid #e0dede;
 		border-radius: 5px;			
 
 		a {

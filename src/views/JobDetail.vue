@@ -83,7 +83,7 @@ export default {
   margin-top: 3rem;
 
   .link {
-    margin: 1rem 0;
+    margin-top: 1rem;
     align-self: flex-end;
   }
 
@@ -152,7 +152,7 @@ export default {
   }
   .btn {
     &.outline {
-      align-self: flex-end;
+      align-self: center;
     }
     &.apply {
       align-self: center;
