@@ -1,3 +1,10 @@
+//breakpoint
+
+// 330px
+// 414px
+// 767px
+// 1024px
+// 1440px
 @mixin media-xs {
     @media screen and (max-width: 414px){
         @content;
@@ -24,3 +31,13 @@
         @content;
     }
 }
+
+// colours
+$primary-color: #6072e1;
+$secondary-color: #38464e;
+$primary01: rgba(96,114,225,0.1);
+
+// fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:wght@300|Mandali&display=swap');
+$font-heading: 'Mandali', sans-serif;
+$font-sentence: 'Nunito Sans', sans-serif;
