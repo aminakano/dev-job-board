@@ -39,6 +39,11 @@ $primary01: rgba(96,114,225,0.1);
 $border-color: #e0dede;
 
 // fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:wght@300|Mandali&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:wght@200|Mandali&display=swap');
 $font-heading: 'Mandali', sans-serif;
 $font-sentence: 'Nunito Sans', sans-serif;
+
+//transition
+@mixin transition-ease {
+	transition: all 0.3s ease-in-out;
+}

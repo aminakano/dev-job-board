@@ -85,6 +85,11 @@ export default {
   .link {
     margin-top: 1rem;
     align-self: flex-end;
+
+    &:hover {
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
   }
 
   .banner {
@@ -130,7 +135,6 @@ export default {
         padding: 1rem 22%;
       }
       .job-desc-detail {
-        font-size: 1.1rem;
         margin: 4rem 0 3rem;
 
         a {
